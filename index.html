@@ -576,7 +576,7 @@ menu.style.display = menu.style.display==="flex" ? "none":"flex";
 
 /* HERO SLIDER */
 
-const heroImages=[
+const hero=[
 "airport-car.png",
 "gorilla.png",
 "safari-lion.jpeg",
@@ -603,7 +603,7 @@ function changeHero(){
 
 index++;
 
-if(index>=heroImages.length){
+if(index>=hero.length){
 index=0;
 }
 
@@ -611,7 +611,7 @@ caption.style.opacity="0";
 
 setTimeout(function(){
 
-hero.style.backgroundImage="url('"+heroImages[index]+"')";
+hero.style.backgroundImage="url('"+hero[index]+"')";
 caption.textContent=heroCaptions[index];
 caption.style.opacity="1";
 
