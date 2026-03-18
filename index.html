@@ -727,6 +727,27 @@ window.addEventListener("scroll",()=>{
   }
 });
 </script>
+<script>
+function showDiary(id){
+  // Hide all other diary detail sections
+  document.querySelectorAll('.diary-detail').forEach(sec => sec.style.display='none');
+
+  // Show the selected section
+  const section = document.getElementById(id);
+  section.style.display = 'block';
+
+  // Smooth scroll to the newly opened section
+  section.scrollIntoView({ behavior: 'smooth' });
+}
+
+function hideDiary(id){
+  // Hide the section
+  document.getElementById(id).style.display = 'none';
+
+  // Optionally, scroll back to Travel Diary cards
+  document.getElementById('travel-diary').scrollIntoView({ behavior: 'smooth' });
+}
+</script> 
 
 </body>
 </html>
