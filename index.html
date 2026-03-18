@@ -458,6 +458,102 @@ markets and cultural locations.
 <p><strong>Starting from $50</strong></p>
 </section>
 
+<!-- DENKIN'S TRAVEL DIARY -->
+<section id="travel-diary" style="padding:40px 20px; background:#f4f4f4; text-align:center;">
+  <h2 style="margin-bottom:20px;">DenKin's Travel Diary</h2>
+  <p style="max-width:700px; margin:0 auto 40px auto;">
+    Follow my personal travels across Uganda's national parks and iconic sites. I share sightings, stories, and tips from the road.
+  </p>
+
+  <!-- CARDS -->
+  <div class="diary-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; max-width:1000px; margin:0 auto;">
+
+    <!-- KIBALE -->
+    <div class="diary-card" onclick="showDiary('kibale')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+      <img src="images/kibale-baboon.jpg" style="width:100%; border-radius:10px;" alt="Kibale National Park">
+      <h3>Kibale National Park</h3>
+      <p>Baboons spotted on my drive. Full stories and videos coming soon!</p>
+      <p style="color:#ff6600; font-weight:bold;">Coming Soon</p>
+    </div>
+
+    <!-- MURCHISON FALLS -->
+    <div class="diary-card" onclick="showDiary('murchison')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+      <img src="images/murchison-placeholder.jpg" style="width:100%; border-radius:10px;" alt="Murchison Falls">
+      <h3>Murchison Falls</h3>
+      <p>Stories from this iconic park will appear here.</p>
+      <p style="color:#ff6600; font-weight:bold;">Coming Soon</p>
+    </div>
+
+    <!-- LAKE MBURO -->
+    <div class="diary-card" onclick="showDiary('lake-mburo')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+      <img src="images/lake-mburo-placeholder.jpg" style="width:100%; border-radius:10px;" alt="Lake Mburo">
+      <h3>Lake Mburo</h3>
+      <p>Future safari adventures and sightings will be shared here.</p>
+      <p style="color:#ff6600; font-weight:bold;">Coming Soon</p>
+    </div>
+
+    <!-- QUEEN ELIZABETH -->
+    <div class="diary-card" onclick="showDiary('queen')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+      <img src="images/queen-placeholder.jpg" style="width:100%; border-radius:10px;" alt="Queen Elizabeth">
+      <h3>Queen Elizabeth</h3>
+      <p>Stories and wildlife encounters will be added here as I visit.</p>
+      <p style="color:#ff6600; font-weight:bold;">Coming Soon</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HIDDEN DETAIL SECTIONS -->
+<section id="kibale" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
+  <h2>Kibale National Park</h2>
+  <img src="images/kibale-baboon.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
+  <video controls style="width:100%; border-radius:10px; margin-bottom:20px;">
+    <source src="videos/kibale-baboon.mp4" type="video/mp4">
+  </video>
+  <p>During my drive through Kibale National Park, I spotted a troop of baboons. Full stories and tips will be updated here as I explore.</p>
+  <ul>
+    <li>Species observed: Baboons</li>
+    <li>Location along the main park road</li>
+    <li>Time of day: morning drive</li>
+    <li>Tips for visitors: best viewing points</li>
+  </ul>
+  <button onclick="hideDiary('kibale')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
+</section>
+
+<!-- Repeat the hidden sections for murchison, lake-mburo, queen -->
+<section id="murchison" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
+  <h2>Murchison Falls</h2>
+  <img src="images/murchison-placeholder.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
+  <p>Stories from this iconic park will appear here.</p>
+  <button onclick="hideDiary('murchison')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
+</section>
+
+<section id="lake-mburo" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
+  <h2>Lake Mburo</h2>
+  <img src="images/lake-mburo-placeholder.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
+  <p>Future safari adventures and sightings will be shared here.</p>
+  <button onclick="hideDiary('lake-mburo')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
+</section>
+
+<section id="queen" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
+  <h2>Queen Elizabeth</h2>
+  <img src="images/queen-placeholder.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
+  <p>Stories and wildlife encounters will be added here as I visit.</p>
+  <button onclick="hideDiary('queen')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
+</section>
+
+<!-- JAVASCRIPT -->
+<script>
+function showDiary(id){
+  document.querySelectorAll('.diary-detail').forEach(sec => sec.style.display='none');
+  document.getElementById(id).style.display='block';
+  window.scrollTo(0,0);
+}
+function hideDiary(id){
+  document.getElementById(id).style.display='none';
+}
+</script>
+ 
 <!-- GUIDE -->
 <section id="guide">
 <h2>Uganda Travel Guide</h2>
