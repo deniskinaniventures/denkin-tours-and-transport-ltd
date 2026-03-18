@@ -476,30 +476,37 @@ markets and cultural locations.
   <!-- CARDS -->
   <div class="diary-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; max-width:1000px; margin:0 auto;">
 
-    <!-- Kibale National Park Card -->
-<div class="card" onclick="showDiary('kibale')" style="position: relative; border-radius: 8px; overflow: hidden; cursor: pointer; width: 100%; max-width: 350px; margin:auto;">
+    <!-- KIBALE NATIONAL PARK -->
+<div class="diary-card" onclick="showDiary('kibale')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow:hidden;">
   
   <!-- Card image -->
-  <img src="papio-anubis.jpg" alt="Papio anubis in Kibale National Park" style="width:100%; display:block;">
-
-  <!-- Arrow overlay -->
+  <img src="assets/images/papio-anubis.jpg" style="width:100%; border-radius:10px;" alt="Papio anubis in Kibale National Park">
+  
+  <!-- Arrow overlay with background circle for contrast -->
   <div style="
     position: absolute;
     bottom: 10px;
     right: 10px;
-    color: white;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
     font-size: 24px;
     font-weight: bold;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
   ">
     →
   </div>
-
+  
   <!-- Card text -->
-  <div style="padding: 10px;">
-    <h3 style="margin:0;">Kibale National Park</h3>
-    <p style="margin:5px 0 0 0;">Primate encounters in the wild</p>
-  </div>
+  <h3 style="margin-top:10px;">Kibale National Park</h3>
+  <p style="margin:5px 0 0 0;">Primate encounters in the wild</p>
+  
+</div>
 </div>
     <!-- MURCHISON FALLS -->
     <div class="diary-card" onclick="showDiary('murchison')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;">
