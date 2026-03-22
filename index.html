@@ -322,16 +322,17 @@ footer{
 <body>
 
 <!-- HERO SECTION -->
-<section id="hero" class="hero">
+<section id="hero" class="hero" style="position:relative; text-align:center; overflow:hidden; padding:90px 20px; background-color:#2c5d3f;">
   <!-- Hero images for slideshow -->
-  <img src="airport-car.png" class="hero-img active" alt="Airport Transfer">
-  <img src="kampala-city.jpg" class="hero-img" alt="City Tour">
-  <img src="safari-van.jpg" class="hero-img" alt="Safari Transport">
+  <img src="airport-car.png" class="hero-img active" alt="Airport Transfer" style="width:100%; height:auto; display:block; position:absolute; top:0; left:0; opacity:1; transition:opacity 1s ease-in-out; z-index:1;">
+  <img src="kampala-city.jpg" class="hero-img" alt="City Tour" style="width:100%; height:auto; display:block; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out; z-index:1;">
+  <img src="safari-van.jpg" class="hero-img" alt="Safari Transport" style="width:100%; height:auto; display:block; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out; z-index:1;">
+  <img src="bwindi-gorilla-trek.jpeg" class="hero-img" alt="Gorilla Trekking Adventures in Bwindi Forest" style="width:100%; height:auto; display:block; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out; z-index:1;">
 
   <!-- Overlay text -->
-  <div class="hero-content">
+  <div class="hero-content" style="position:relative; z-index:2; color:white; text-shadow:1px 1px 4px rgba(0,0,0,0.7); max-width:700px; margin:auto;">
     <h1>DenKin Tours and Transport</h1>
-    <p id="hero-caption">Private Airport Transfers Between Entebbe and Kampala</p>
+    <p id="hero-caption">Gorilla Trekking Adventures in Bwindi Forest</p>
     <p>Reliable transport – Kampala and beyond!</p>
   </div>
 </section>
@@ -339,17 +340,28 @@ footer{
 <!-- JS for hero slideshow -->
 <script>
 const slides = document.querySelectorAll('.hero-img');
+let captions = [
+  "Private Airport Transfers Between Entebbe and Kampala",
+  "Explore Kampala City on a Private Tour",
+  "Comfortable Safari Transport Across Uganda",
+  "Gorilla Trekking Adventures in Bwindi Forest"
+];
 let current = 0;
 
 setInterval(() => {
-  slides[current].classList.remove('active'); // hide current
-  current = (current + 1) % slides.length;    // move to next
-  slides[current].classList.add('active');    // show next
-}, 5000); // every 5 seconds
-</script>
+  // hide current
+  slides[current].style.opacity = 0;
 
-<!-- rest of your page content -->
- 
+  // move to next
+  current = (current + 1) % slides.length;
+
+  // show next
+  slides[current].style.opacity = 1;
+
+  // update caption
+  document.getElementById('hero-caption').textContent = captions[current];
+}, 5000); // change every 5 seconds
+</script>
 <!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
