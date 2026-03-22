@@ -319,8 +319,11 @@ footer{
   </div>
 </nav>
 
+<body>
+
+<!-- HERO SECTION -->
 <section id="hero" class="hero">
-  <!-- Full images for animation -->
+  <!-- Hero images for slideshow -->
   <img src="airport-car.png" class="hero-img active" alt="Airport Transfer">
   <img src="kampala-city.jpg" class="hero-img" alt="City Tour">
   <img src="safari-van.jpg" class="hero-img" alt="Safari Transport">
@@ -332,6 +335,20 @@ footer{
     <p>Reliable transport – Kampala and beyond!</p>
   </div>
 </section>
+
+<!-- JS for hero slideshow -->
+<script>
+const slides = document.querySelectorAll('.hero-img');
+let current = 0;
+
+setInterval(() => {
+  slides[current].classList.remove('active'); // hide current
+  current = (current + 1) % slides.length;    // move to next
+  slides[current].classList.add('active');    // show next
+}, 5000); // every 5 seconds
+</script>
+
+<!-- rest of your page content -->
  
 <!-- ABOUT -->
 <section id="about">
