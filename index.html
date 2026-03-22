@@ -815,7 +815,6 @@ function toggleMenu(){
   var menu=document.getElementById("dropdown");
   menu.style.display = menu.style.display==="flex"?"none":"flex";
 }
-
 /* HERO SLIDER */
 const heroImages=[
 "airport-car.png",
@@ -860,40 +859,6 @@ window.addEventListener("scroll",()=>{
   }
 });
 </script>
-<script>
-function showDiary(id){
-  // Hide all other diary detail sections
-  document.querySelectorAll('.diary-detail').forEach(sec => sec.style.display='none');
 
-  // Show the selected section
-  const section = document.getElementById(id);
-  section.style.display = 'block';
-
-  // Smooth scroll to the newly opened section
-  section.scrollIntoView({ behavior: 'smooth' });
-}
-
-function hideDiary(id){
-  // Hide the section
-  document.getElementById(id).style.display = 'none';
-
-  // Optionally, scroll back to Travel Diary cards
-  document.getElementById('travel-diary').scrollIntoView({ behavior: 'smooth' });
-}
-</script> 
- <!-- Other page content -->
-
-<script>
-// Select all hero images
-const slides = document.querySelectorAll('.hero-img');
-let current = 0;
-
-// Function to show next slide
-setInterval(() => {
-  slides[current].classList.remove('active'); // hide current
-  current = (current + 1) % slides.length;    // move to next
-  slides[current].classList.add('active');    // show next
-}, 5000); // change every 5 seconds
-</script>
 </body>
 </html>
