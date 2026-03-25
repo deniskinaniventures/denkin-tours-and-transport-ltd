@@ -640,14 +640,6 @@ function hideDiary(id){
   }
 }
 </script>
-
-<!-- JAVASCRIPT -->
-<script>
-function showDiary(id){
-  document.querySelectorAll('.diary-detail').forEach(sec => sec.style.display='none');
-  document.getElementById(id).style.display='block';
-  window.scrollTo(0,0);
-</script>
  
 <!-- GUIDE -->
 <section id="guide">
@@ -769,14 +761,8 @@ function showDiary(id){
 </footer>
 
 <a href="#hero" class="fixed-home" id="homeBtn">Home</a>
+<script>
 
-<script>
-/* MENU */
-function toggleMenu(){
-  var menu=document.getElementById("dropdown");
-  menu.style.display = menu.style.display==="flex"?"none":"flex";
-}
-<script>
 const heroImages=[
 "airport-car.png",
 "gorilla.png",
