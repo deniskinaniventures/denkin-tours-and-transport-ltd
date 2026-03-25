@@ -335,19 +335,22 @@ footer{
   </div>
 </div>
 
- /* Dropdown menu styles */
+<style>
+/* =========================
+   DROPDOWN MENU
+========================= */
 #dropdown {
-  display: none;          /* hidden by default */
+  display: none;             /* hidden by default */
   flex-direction: column;
-  background-color: #fff; /* menu background */
-  position: relative;     /* important — makes it push content */
+  background-color: #fff;
+  position: absolute;        /* overlays content instead of pushing */
   width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 1;
+  z-index: 100;              /* ensures it stays on top */
 }
 
 #dropdown.show {
-  display: flex;          /* shows when toggled */
+  display: flex;             /* shows when toggled */
 }
 
 #dropdown a {
@@ -360,6 +363,14 @@ footer{
 #dropdown a:hover {
   background-color: #f2f2f2;
 }
+
+/* Make sure About Us section is pushed down enough */
+#about {
+  position: relative;
+  z-index: 1;
+  margin-top: 60px; /* adjust so menu doesn’t overlap */
+}
+</style>
  
 <!-- ABOUT -->
 <section id="about">
