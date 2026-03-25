@@ -774,7 +774,7 @@ function toggleMenu(){
   var menu=document.getElementById("dropdown");
   menu.style.display = menu.style.display==="flex"?"none":"flex";
 }
-/* HERO SLIDER */
+<script>
 const heroImages=[
 "airport-car.png",
 "gorilla.png",
@@ -783,6 +783,7 @@ const heroImages=[
 "kampala-city.jpg",
 "coffee-farm.jpg"
 ];
+
 const heroCaptions=[
 "Private Airport Transfers Between Entebbe and Kampala",
 "Gorilla Trekking Adventures in Bwindi Forest",
@@ -791,21 +792,34 @@ const heroCaptions=[
 "Explore Kampala With a Private Guide",
 "Agro-Tourism and Cultural Farm Experiences"
 ];
-let index=0;
-const hero=document.getElementById("hero");
-const caption=document.getElementById("hero-caption");
-function changeHero(){
-  index++;
-  if(index>=heroImages.length) index=0;
-  caption.style.opacity=0;
-  setTimeout(()=>{
-    hero.style.backgroundImage=`url('${heroImages[index]}')`;
-    caption.textContent=heroCaptions[index];
-    caption.style.opacity=1;
-  },400);
-}
-setInterval(changeHero,5000);
 
+let index=0;
+
+window.onload = function() {
+
+  const hero=document.getElementById("hero");
+  const caption=document.getElementById("hero-caption");
+
+  // ✅ THIS WAS MISSING (VERY IMPORTANT)
+  hero.style.backgroundImage = `url('${heroImages[0]}')`;
+  caption.textContent = heroCaptions[0];
+
+  function changeHero(){
+    index++;
+    if(index>=heroImages.length) index=0;
+
+    caption.style.opacity=0;
+
+    setTimeout(()=>{
+      hero.style.backgroundImage=`url('${heroImages[index]}')`;
+      caption.textContent=heroCaptions[index];
+      caption.style.opacity=1;
+    },400);
+  }
+
+  setInterval(changeHero,5000);
+};
+</script>
 /* HOME BUTTON */
 const homeBtn=document.getElementById("homeBtn");
 window.addEventListener("scroll",()=>{
@@ -865,7 +879,5 @@ window.onload = function() {
 };
 </script>
 
-</body>
-</html>
 </body>
 </html>
