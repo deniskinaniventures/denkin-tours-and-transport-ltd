@@ -76,26 +76,29 @@ body{
 }
 
 /* HERO - Desktop default */
+
+ /* HERO - Desktop default */
 .hero {
   position: relative;
   text-align: center;
   overflow: hidden;
-  padding: 120px 20px;       /* cinematic vertical space */
-  background-color: #000; /* fallback */
-  background-size: cover;     /* cover whole hero area without distortion */
+  padding: 120px 20px;        /* cinematic vertical space */
+  background-color: #1e1e1e;  /* dark grey fallback instead of green */
+  background-size: cover;      /* cover whole hero area without distortion */
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 600px;          /* tall enough for cinematic feel */
+  min-height: 600px;           /* tall enough for cinematic feel */
 }
 
- .hero::after {
+/* Cinematic dark overlay */
+.hero::after {
   content: "";
   position: absolute;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.4); /* cinematic dark overlay */
+  background: rgba(30,30,30,0.4); /* dark grey transparent overlay */
   z-index:1;
 }
 
@@ -104,6 +107,8 @@ body{
   color: #f2d181;
   font-size: 48px;
   margin-bottom: 15px;
+  position: relative;
+  z-index: 2; /* above overlay */
 }
 
 #hero-caption {
@@ -111,14 +116,16 @@ body{
   color: #f2d181;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   transition: opacity 0.8s;
+  position: relative;
+  z-index: 2; /* above overlay */
 }
 
 /* HERO - Mobile adjustments */
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 10px;  /* smaller padding for mobile */
-    min-height: 300px;   /* scale down height */
-    background-size: contain; /* ensures entire image is visible on small screens */
+    padding: 60px 10px;
+    min-height: 300px;
+    background-size: contain;
   }
 
   .hero h1 {
@@ -128,7 +135,7 @@ body{
   #hero-caption {
     font-size: 16px;
   }
-} 
+}
 
 /* BUTTON */
 .button{
