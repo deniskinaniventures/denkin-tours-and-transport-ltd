@@ -75,8 +75,6 @@ body{
   background:#f5f2eb;
 }
 
-/* HERO - Desktop default */
-
  /* HERO - Desktop default */
 .hero {
   position: relative;
@@ -335,24 +333,24 @@ footer{
   </div>
 </div>
 
-<style>
-/* =========================
-   DROPDOWN MENU
-========================= */
+/* NAVBAR DROPDOWN FIX */
 #dropdown {
   display: none;             /* hidden by default */
   flex-direction: column;
   background-color: #fff;
-  position: absolute;        /* overlays content instead of pushing */
+  position: absolute;        /* floats above content */
+  top: 60px;                 /* adjust to navbar height */
   width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 100;              /* ensures it stays on top */
+  z-index: 200;              /* above hero image */
 }
 
+/* Show dropdown when toggled */
 #dropdown.show {
-  display: flex;             /* shows when toggled */
+  display: flex;
 }
 
+/* Dropdown links */
 #dropdown a {
   padding: 15px 20px;
   text-decoration: none;
@@ -364,13 +362,11 @@ footer{
   background-color: #f2f2f2;
 }
 
-/* Make sure About Us section is pushed down enough */
-#about {
+/* Ensure hero stays behind */
+.hero {
   position: relative;
   z-index: 1;
-  margin-top: 60px; /* adjust so menu doesn’t overlap */
 }
-</style>
  
 <!-- ABOUT -->
 <section id="about">
