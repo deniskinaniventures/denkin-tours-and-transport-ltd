@@ -334,24 +334,24 @@ footer{
 </div>
  
 <style>
-/* =========================
-   NAVBAR DROPDOWN FIX
-========================= */
+/* NAVBAR DROPDOWN FIX */
 #dropdown {
-  display: none;               /* hidden by default */
+  display: none;             /* hidden by default */
   flex-direction: column;
   background-color: #fff;
-  position: absolute;          /* floats above content */
-  top: 60px;                   /* adjust to navbar height */
+  position: absolute;        /* floats above content */
+  top: 60px;                 /* adjust to navbar height */
   width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 200;                /* above hero image */
+  z-index: 9999;             /* ensures it’s above hero and everything else */
 }
 
+/* Show dropdown when toggled */
 #dropdown.show {
-  display: flex;               /* shows when toggled */
+  display: flex;
 }
 
+/* Dropdown links */
 #dropdown a {
   padding: 15px 20px;
   text-decoration: none;
@@ -368,11 +368,6 @@ footer{
   position: relative;
   z-index: 1;
 }
-
-/* Push About Us down to avoid being hidden by navbar/dropdown */
-#about {
-  margin-top: 80px;            /* adjust spacing as needed */
- }
 </style>
  
 <!-- ABOUT -->
