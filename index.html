@@ -82,8 +82,12 @@ body{
   overflow: hidden;
   padding: 90px 20px;
   background-color: #2c5d3f; /* fallback */
+  
+  background-size: contain;       /* ensures full image visible */
+  background-position: center;    /* center the main subject */
+  background-repeat: no-repeat;   /* no duplicates */
+  min-height: 500px;              /* ensures enough vertical space */
 }
-
 .hero-img {
   width: 100%;
   height: auto;   /* ensures full image visible */
