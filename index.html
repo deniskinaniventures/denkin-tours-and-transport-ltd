@@ -333,25 +333,26 @@ footer{
   </div>
 </div>
  
-<style>
 /* =========================
-   NAVBAR DROPDOWN FIX
+   DROPDOWN MENU FIX
 ========================= */
 #dropdown {
-  display: none;              /* hidden by default */
+  display: none;             /* hidden by default */
   flex-direction: column;
-  background-color: #fff;
-  position: absolute;         /* floats above content */
-  top: 60px;                  /* adjust according to navbar height */
+  background-color: #fff;    /* menu background */
+  position: absolute;        /* float above hero content */
+  top: 60px;                 /* height of navbar */
   width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 999;               /* high enough to stay above hero */
+  z-index: 10000;             /* way above hero image */
 }
 
+/* Show dropdown when toggled */
 #dropdown.show {
-  display: flex;              /* shows when toggled */
+  display: flex;
 }
 
+/* Dropdown links */
 #dropdown a {
   padding: 15px 20px;
   text-decoration: none;
@@ -366,9 +367,8 @@ footer{
 /* Ensure hero stays behind dropdown */
 .hero {
   position: relative;
-  z-index: 1;
+  z-index: 1;                /* keeps hero under dropdown */
 }
-</style>
  
 <!-- ABOUT -->
 <section id="about">
