@@ -324,6 +324,48 @@ window.addEventListener("scroll", () => {
    class="whatsapp-float" target="_blank">
    WhatsApp
 </a>
+  const homeBtn = document.getElementById("homeBtn");
+
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 200){
+    homeBtn.classList.add("show");
+  } else {
+    homeBtn.classList.remove("show");
+  }
+});
+  .home-btn{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+
+  background:#f2d181;
+  color:#2c5d3f;
+
+  padding:12px 16px;
+  border-radius:50px;
+
+  font-weight:bold;
+  text-decoration:none;
+
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:999;
+
+  opacity:0;
+  transform:translateX(20px);
+  pointer-events:none;
+
+  transition:all 0.3s ease;
+}
+
+.home-btn.show{
+  opacity:1;
+  transform:translateX(0);
+  pointer-events:auto;
+}
+
+.home-btn:hover{
+  background:#d4b25f;
+}
  <a href="#hero" id="homeBtn" class="home-btn">↑ Home</a> 
 </body>
 </html>
