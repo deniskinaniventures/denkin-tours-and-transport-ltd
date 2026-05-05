@@ -132,7 +132,34 @@ footer{
   text-align:center;
   padding:20px;
 }
+.card img{
+  height:180px;
+  object-fit:cover;
+}
+  .whatsapp-float{
+  position:fixed;
+  bottom:25px;
+  left:25px;
+  background:#25D366;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:50px;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:999;
 
+  opacity:0;
+  transform:translateY(20px);
+  pointer-events:none;
+  transition:all 0.3s ease;
+}
+
+.whatsapp-float.show{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
 </style>
 </head>
 
@@ -193,22 +220,31 @@ Focused on safety, reliability, and personalized service.
 </div>
 </section>
 
-<!-- SAFARI -->
 <section id="safari">
 <h2>Safari Packages</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Murchison Falls</h3>
-<p>3 Day Safari</p>
-<a href="https://wa.me/256756712936" class="button">Inquire</a>
+<img src="murchison-falls.jpg" style="width:100%; border-radius:8px; margin-bottom:10px;">
+<h3>Murchison Falls Safari</h3>
+<p>3 Days. See lions, elephants and the Nile waterfall up close.</p>
+<p><strong>From $300</strong></p>
+
+<a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I'm%20interested%20in%20the%203%20Day%20Murchison%20Falls%20Safari.%20Please%20share%20details." class="button">
+Inquire Now
+</a>
 </div>
 
 <div class="card">
-<h3>Gorilla Trekking</h3>
-<p>3 Day Safari</p>
-<a href="https://wa.me/256756712936" class="button">Inquire</a>
+<img src="gorilla.jpg" style="width:100%; border-radius:8px; margin-bottom:10px;">
+<h3>Gorilla Trekking Safari</h3>
+<p>3 Days. Meet mountain gorillas in Bwindi forest.</p>
+<p><strong>From $700</strong></p>
+
+<a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I'm%20interested%20in%20the%203%20Day%20Gorilla%20Trekking%20Safari.%20Please%20share%20details." class="button">
+Inquire Now
+</a>
 </div>
 
 </div>
@@ -273,7 +309,20 @@ document.addEventListener('click', function(e){
   }
 });
 
+  const whatsappBtn = document.querySelector(".whatsapp-float");
+
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 200){
+    whatsappBtn.classList.add("show");
+  } else {
+    whatsappBtn.classList.remove("show");
+  }
+});
 </script>
 
+  <a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I%20would%20like%20to%20plan%20a%20trip." 
+   class="whatsapp-float" target="_blank">
+   WhatsApp
+</a>
 </body>
 </html>
