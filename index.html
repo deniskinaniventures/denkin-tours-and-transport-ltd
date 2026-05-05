@@ -1,336 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
- <style>
-/* Smooth navigation scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Slightly darker green for Inquire buttons */
-.package-card .btn {
-  background-color: #1FAF54;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-/* Slightly darker when hovered */
-.package-card .btn:hover {
-  background-color: #178A40;
-}
- </style> 
 <head>
- <meta name="google-site-verification" content="TvQYtRPoCRSAvdUTneTj5xqHzIg1wZhvhEZnB49fduQ" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DenKin Tours and Transport</title>
-<meta name="description" content="DenKin Tours and Transport offers Uganda safari transport, airport transfers, private city tours, and comfortable travel across Kampala and Uganda.">
+
+<title>DenKin Tours & Transport</title>
+<meta name="description" content="Reliable Uganda tours, safaris, and transport services.">
+
 <style>
 
-/* GLOBAL */
+/* ===== GLOBAL ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body{
   font-family: Arial, sans-serif;
-  margin:0;
   background:#f9f5f0;
   color:#333;
-  text-align:center;
   line-height:1.6;
-  scroll-behavior:smooth;
 }
 
-/* NAVBAR */
-/* =============================
-   NAVBAR & HAMBURGER DROPDOWN
-============================= */
-
-/* Navbar fixed at top */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 20px;
-  background-color: #fff; /* optional: navbar background */
-  z-index: 10001;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Hamburger icon */
-.menu-icon {
-  font-size: 32px;
-  color: #f2d181;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* Dropdown menu (hidden by default) */
-#dropdown {
-  display: none;
-  flex-direction: column;
-  background-color: #fff;
-  position: absolute;
-  top: 100%;      /* right below navbar */
-  left: 0;
-  width: 220px;   /* dropdown width */
-  border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  z-index: 10002; /* above hero & navbar */
-  overflow: hidden;
-}
-
-/* Show dropdown when active */
-#dropdown.show {
-  display: flex;
-}
-
-/* Dropdown links */
-#dropdown a {
-  padding: 14px 20px;
-  text-decoration: none;
-  color: #2c5d3f;
-  font-weight: bold;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-  transition: background 0.3s;
-}
-
-#dropdown a:hover {
-  background-color: #f5f2eb;
-}
-
-/* Push content down so top section isn't hidden by fixed navbar */
-body {
-  padding-top: 60px; /* matches navbar height */
-}
- 
- /* HERO - Desktop default */
-.hero {
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-  padding: 120px 20px;        /* cinematic vertical space */
-  background-color: #1e1e1e;  /* dark grey fallback instead of green */
-  background-size: cover;      /* cover whole hero area without distortion */
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 600px;           /* tall enough for cinematic feel */
-}
-
-/* Cinematic dark overlay */
-.hero::after {
-  content: "";
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(30,30,30,0.4); /* dark grey transparent overlay */
-  z-index:1;
-}
-
-/* Hero text/content */
-.hero h1 {
-  color: #f2d181;
-  font-size: 48px;
-  margin-bottom: 15px;
-  position: relative;
-  z-index: 2; /* above overlay */
-}
-
-#hero-caption {
-  font-size: 22px;
-  color: #f2d181;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  transition: opacity 0.8s;
-  position: relative;
-  z-index: 2; /* above overlay */
-}
-
-/* HERO - Mobile adjustments */
-@media (max-width: 768px) {
-  .hero {
-    padding: 60px 10px;
-    min-height: 300px;
-    background-size: contain;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  #hero-caption {
-    font-size: 16px;
-  }
-}
-
-/* BUTTON */
-.button{
-  display:inline-block;
-  background:#f2d181;
-  color:#2c5d3f;
-  padding:14px 28px;
-  margin-top:20px;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-.button:hover{
-  background:#d4b25f;
-  transform:translateY(-2px);
-}
-
-/* SECTIONS */
 section{
   padding:60px 20px;
   max-width:1100px;
   margin:auto;
+  scroll-margin-top:80px;
 }
 
-h2{
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:60px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  padding:0 20px;
+  z-index:1000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.menu-icon{
+  font-size:28px;
+  cursor:pointer;
   color:#2c5d3f;
-  margin-bottom:25px;
 }
 
-/* TRUST */
-.trust ul{
-  list-style:none;
-  padding:0;
-}
-
-.trust li{
-  margin:10px 0;
-  font-size:18px;
-}
-
-/* SERVICES */
-.services-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-}
-
-.service-card{
-  background:white;
-  padding:25px;
-  border-radius:10px;
-  max-width:300px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
-
-.service-card img{
+/* Dropdown */
+#dropdown{
+  position:absolute;
+  top:60px;
+  left:0;
   width:100%;
-  margin-top:10px;
-  border-radius:8px;
+  background:#fff;
+  display:none;
+  flex-direction:column;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* GUIDE */
-.guide-grid{
+#dropdown.show{ display:flex; }
+
+#dropdown a{
+  padding:15px;
+  text-decoration:none;
+  color:#333;
+  border-bottom:1px solid #eee;
+}
+
+#dropdown a:hover{ background:#f5f5f5; }
+
+/* ===== HERO ===== */
+.hero{
+  margin-top:60px;
+  height:70vh;
   display:flex;
-  flex-wrap:wrap;
+  align-items:center;
   justify-content:center;
-  gap:20px;
+  text-align:center;
+  background:#1e1e1e;
+  color:#fff;
+  position:relative;
 }
 
-.guide-card{
-  background:white;
-  padding:25px;
-  border-radius:10px;
-  max-width:300px;
-  text-align:left;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
 }
 
-.guide-card img{
-  width:100%;
-  margin-top:10px;
-  border-radius:8px;
+.hero-content{
+  position:relative;
+  z-index:2;
 }
 
-/* GALLERY */
-.gallery-grid{
+.hero h1{ font-size:40px; color:#f2d181; }
+
+.button{
+  display:inline-block;
+  background:#f2d181;
+  padding:12px 25px;
+  margin-top:15px;
+  text-decoration:none;
+  color:#2c5d3f;
+  border-radius:6px;
+}
+
+/* ===== CARDS ===== */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-
-.gallery-grid img{
-  width:100%;
-  border-radius:10px;
-  border:3px solid #f2d181;
-  transition:0.3s;
-}
-
-.gallery-grid img:hover{
-  transform:scale(1.05);
-}
-
-/* ACTIVITIES */
-.activities-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
   gap:20px;
 }
 
-.activity-card{
-  background:white;
-  padding:25px;
+.card{
+  background:#fff;
+  padding:20px;
   border-radius:10px;
-  max-width:300px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  text-align:left;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-.activity-card img{
-  width:100%;
-  margin-top:10px;
-  border-radius:8px;
+/* ===== TRUST ===== */
+.trust{
+  background:#fff;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   background:#2c5d3f;
-  color:white;
-  padding:30px;
-  margin-top:40px;
-}
-
-/* HOME BUTTON */
-.fixed-home{
-  position:fixed;
-  top:50%;
-  right:-80px;
-  transform:translateY(-50%);
-  background:#f2d181;
-  color:#2c5d3f;
-  padding:12px 18px;
-  border-radius:50px;
-  font-weight:bold;
-  text-decoration:none;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-  z-index:1000;
-  opacity:0;
-  transition:right 0.5s ease, opacity 0.5s ease;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* shadow for visibility */
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero h1{
-    font-size:34px;
-  }
-  .services-grid,
-  .guide-grid,
-  .activities-grid{
-    flex-direction:column;
-    align-items:center;
-  }
+  color:#fff;
+  text-align:center;
+  padding:20px;
 }
 
 </style>
@@ -338,593 +138,142 @@ footer{
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
   <div id="dropdown">
-    <a href="#about">About Us</a>
-    <a href="#trust">Why Travelers Choose Us</a>
+    <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="#safari">Safari Packages</a>
-    <a href="#featured">Featured Experience</a>
-    <a href="#travel-diary">Travel Diary</a>
-    <a href="#guide">Travel Guide</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#activities">Outdoor Activities</a>
+    <a href="#safari">Safaris</a>
+    <a href="#trust">Why Us</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
- <!-- HERO -->
-<div id="hero" class="hero">
+<!-- HERO -->
+<section class="hero" id="hero">
   <div class="hero-content">
     <h1>DenKin Tours & Transport</h1>
-    <p id="hero-caption"></p>
+    <p>Reliable travel across Uganda</p>
     <a href="#contact" class="button">Plan Your Trip</a>
   </div>
-</div>
- 
-<style>
-/* =========================
-   NAVBAR DROPDOWN & SPACING FIX
-========================= */
-/* Dropdown menu */
-#dropdown {
-  display: none;               /* hidden by default */
-  flex-direction: column;
-  background-color: #fff;      /* menu background */
-  position: absolute;          /* floats above everything */
-  top: 100%;                   /* right below navbar */
-  left: 0;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 10002;              /* ensures dropdown is above hero and navbar */
-}
+</section>
 
-/* Show dropdown when toggled */
-#dropdown.show {
-  display: flex;
-}
-
-/* Dropdown links */
-#dropdown a {
-  padding: 15px 20px;
-  text-decoration: none;
-  color: #333;
-  border-bottom: 1px solid #eee;
-}
-
-#dropdown a:hover {
-  background-color: #f2f2f2;
-}
-
-/* Hero stays under dropdown */
-.hero {
-  position: relative;
-  z-index: 1;  /* keeps hero under navbar & dropdown */
-}
-
-/* Push About section below navbar/dropdown */
-#about {
-  margin-top: 100px;  /* adjust according to navbar height */
-  position: relative;
-  z-index: 1;
-}
-</style>
- 
 <!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
 <p>
-DenKin Tours and Transport provides reliable airport transfers, private city tours
-and comfortable transport across Kampala and Uganda.
-We focus on safety, professionalism and personal service for every traveler.
+We provide professional transport, safaris, and guided tours across Uganda.
+Focused on safety, reliability, and personalized service.
 </p>
-</section>
-
-<!-- TRUST -->
-<!-- WHY TRAVELERS CHOOSE DENKIN -->
-<section id="trust" style="padding:40px 20px; background:#ffffff; text-align:center;">
-  <h2 style="margin-bottom:30px;">Why Travelers Choose DenKin</h2>
-  <div class="trust-cards" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; max-width:1000px; margin:0 auto;">
-    
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Expert Safari & Tour Guidance</h3>
-      <p>Knowledgeable guides ensure every trip is unforgettable, with deep insights into wildlife and culture.</p>
-    </div>
-
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Professional Private Drivers</h3>
-      <p>Safe, courteous, and experienced drivers handle all your transport needs efficiently.</p>
-    </div>
-
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Comfortable & Well-Maintained Vehicles</h3>
-      <p>Vehicles designed for comfort, perfect for both city trips and long safari tours.</p>
-    </div>
-
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Reliable Airport & City Transfers</h3>
-      <p>Punctual pickups and drop-offs, ensuring peace of mind for every traveler.</p>
-    </div>
-
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Flexible Schedules & Custom Itineraries</h3>
-      <p>Tours designed around your needs, whether short trips or extended safaris.</p>
-    </div>
-
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Direct WhatsApp Inquiries</h3>
-      <p>Instant answers to booking questions, making it easy to plan your next adventure.</p>
-    </div>
-
-    <div class="card" style="background:#f9f5f0; border-radius:10px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-      <h3>Memorable Uganda Experiences</h3>
-      <p>Carefully crafted safari packages showcasing the best wildlife, culture, and scenery.</p>
-    </div>
-
-  </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
 <h2>Our Services</h2>
-<div class="services-grid">
-  <div class="service-card">
-    <h3>Airport Transfers</h3>
-    <p>Safe and reliable transport between Entebbe Airport and Kampala hotels.</p>
-    <img src="airport-car.png">
-  </div>
-  <div class="service-card">
-    <h3>Kampala City Tours</h3>
-    <p>Explore markets, landmarks and local culture with a relaxed private tour.</p>
-    <img src="kampala-city.jpg">
-  </div>
-  <div class="service-card">
-    <h3>Private Transport</h3>
-    <p>Comfortable travel within Kampala or upcountry destinations.</p>
-    <img src="van.jpeg">
-  </div>
-  <div class="service-card">
-    <h3>Agro-Tourism Experiences</h3>
-    <p>Visit local farms and experience Ugandan agriculture firsthand.</p>
-    <img src="coffee-farm.jpg">
-  </div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Airport Transfers</h3>
+<p>Reliable Entebbe to Kampala transport.</p>
+</div>
+
+<div class="card">
+<h3>City Tours</h3>
+<p>Explore Kampala with a private guide.</p>
+</div>
+
+<div class="card">
+<h3>Private Transport</h3>
+<p>Comfortable travel across Uganda.</p>
+</div>
+
 </div>
 </section>
 
-<!-- SAFARI PACKAGES -->
-<section id="safari" style="padding:40px 20px; background:#f9f5f0; text-align:center;">
-<h2>Uganda Safari & Adventure Packages</h2>
- <p>
-Explore Uganda's most exciting experiences including wildlife safaris 
-in national parks and adventure trips to the Source of the Nile in 
-Jinja.
-  </p>
-  <div class="packages-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; max-width:1000px; margin:0 auto;">
+<!-- SAFARI -->
+<section id="safari">
+<h2>Safari Packages</h2>
 
-    <!-- Murchison Falls -->
-    <div class="package-card" style="background:#ffffff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px;">
-      <img src="murchison-falls.jpeg" alt="Murchison Falls" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-      <h3 style="margin-top:15px;">3 Day Murchison Falls Safari</h3>
-      <p style="font-size:14px; margin:10px 0;">Explore the stunning Murchison Falls and the Nile wildlife.</p>
-      <a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I%20am%20interested%20in%20the%203%20Day%20Murchison%20Falls%20Safari" target="_blank" style="display:inline-block; background:#25D366; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin-top:10px;">Inquire Now</a>
-    </div>
+<div class="grid">
 
-    <!-- Gorilla Trekking -->
-    <div class="package-card" style="background:#ffffff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px;">
-      <img src="bwindi-gorilla-trek.jpeg" alt="Bwindi Gorilla Trekking" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-      <h3 style="margin-top:15px;">3 Day Gorilla Trekking Safari</h3>
-      <p style="font-size:14px; margin:10px 0;">Track mountain gorillas in the lush Bwindi Impenetrable Forest.</p>
-      <a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I%20am%20interested%20in%20the%203%20Day%20Gorilla%20Trekking%20Safari" target="_blank" style="display:inline-block; background:#25D366; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin-top:10px;">Inquire Now</a>
-    </div>
-
-    <!-- Lake Mburo -->
-    <div class="package-card" style="background:#ffffff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px;">
-      <img src="lake-mburo.jpg" alt="Lake Mburo Safari" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-      <h3 style="margin-top:15px;">2 Day Lake Mburo Safari</h3>
-      <p style="font-size:14px; margin:10px 0;">Discover Lake Mburo’s savanna landscapes and abundant wildlife.</p>
-      <a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I%20am%20interested%20in%20the%202%20Day%20Lake%20Mburo%20Safari" target="_blank" style="display:inline-block; background:#25D366; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin-top:10px;">Inquire Now</a>
-    </div>
-
-    <!-- Chimpanzee Trek -->
-    <div class="package-card" style="background:#ffffff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px;">
-      <img src="kibale-chimps.jpg" alt="Kibale Chimp Trek" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-      <h3 style="margin-top:15px;">3 Day Chimpanzee Trekking Safari</h3>
-      <p style="font-size:14px; margin:10px 0;">Walk through Kibale Forest and see chimpanzees in their natural habitat.</p>
-      <a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I%20am%20interested%20in%20the%203%20Day%20Chimpanzee%20Trekking%20Safari" target="_blank" style="display:inline-block; background:#25D366; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin-top:10px;">Inquire Now</a>
-    </div>
-    
-    <!-- Jinja Adventure -->
-<div class="package-card" style="background:#fff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px;">
-  <img src="jinja-white-water-rafting.jpg" alt="Jinja Adventure at the Source of the Nile" style="width:100%; height:200px; object-fit:cover; border-radius:10px;">
-  <h3 style="margin-top:15px;">1 Day Jinja Adventure</h3>
-  <p style="font-size:14px; margin:10px 0;">
-    Experience the thrill of adventure at the Source of the Nile in 
-    <strong>Jinja</strong>. Enjoy activities like white water rafting, 
-    boat rides, and scenic views of the Nile River.
-  </p>
-  <a href="https://wa.me/256756712936?text=Hello%20DenKin,%20I%20am%20interested%20in%20the%201%20Day%20Jinja%20Adventure." class="btn" target="_blank" style="display:inline-block; background:#25D366; color:#fff; padding:10px 15px; border-radius:5px; text-decoration:none; margin-top:10px;">Inquire Now</a>
+<div class="card">
+<h3>Murchison Falls</h3>
+<p>3 Day Safari</p>
+<a href="https://wa.me/256756712936" class="button">Inquire</a>
 </div>
-</section>
-  
-<!-- FEATURED -->
-<section id="featured">
-<h2>Kampala City Highlights Tour</h2>
-<p>
-Discover Uganda's capital on a relaxed private tour including top viewpoints,
-markets and cultural locations.
-</p>
-<p><strong>Starting from $50</strong></p>
-</section>
 
- <!-- =============================
-     Travel Diary Anchor
-============================= -->
-<div id="travel-diary-anchor"></div>
-
-<!-- =============================
-     DENKIN'S TRAVEL DIARY
-============================= -->
-<section id="travel-diary" style="padding:40px 20px; background:#f4f4f4; text-align:center;">
-  <h2 style="margin-bottom:20px;">DenKin's Travel Diary</h2>
-  <p style="max-width:700px; margin:0 auto 40px auto;">
-    Follow my personal travels across Uganda's national parks and iconic sites. I share sightings, stories, and tips from the road.
-  </p>
-
-  <!-- CARDS -->
-  <div class="diary-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; max-width:1000px; margin:0 auto;">
-
-    <!-- KIBALE NATIONAL PARK -->
-<div class="diary-card" onclick="showDiary('kibale')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow:hidden;">
-  
-  <!-- Card image -->
-  <img src="kibale-chimps.jpg" style="width:100%; border-radius:10px;" alt="Papio anubis in Kibale National Park">
-  
-  <!-- Arrow overlay with background circle for contrast -->
-  <div style="
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  ">
-    →
-  </div>
-  
-  <!-- Card text -->
-  <h3 style="margin-top:10px;">Kibale National Park</h3>
-  <p style="margin:5px 0 0 0;">Primate encounters in the wild</p>
-  
+<div class="card">
+<h3>Gorilla Trekking</h3>
+<p>3 Day Safari</p>
+<a href="https://wa.me/256756712936" class="button">Inquire</a>
 </div>
-</div>
-    <!-- MURCHISON FALLS -->
-    <div class="diary-card" onclick="showDiary('murchison')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;">
-      <img src="murchison-placeholder.jpg" style="width:100%; border-radius:10px;" alt="Murchison Falls">
-      <h3>Murchison Falls</h3>
-    </div>
 
-    <!-- LAKE MBURO -->
-    <div class="diary-card" onclick="showDiary('lake-mburo')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;">
-      <img src="lake-mburo-placeholder.jpg" style="width:100%; border-radius:10px;" alt="Lake Mburo">
-      <h3>Lake Mburo</h3>
-    </div>
-
-    <!-- QUEEN ELIZABETH -->
-    <div class="diary-card" onclick="showDiary('queen')" style="cursor:pointer; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s;">
-      <img src="queen-placeholder.jpg" style="width:100%; border-radius:10px;" alt="Queen Elizabeth">
-      <h3>Queen Elizabeth</h3>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================
-     HIDDEN DETAIL SECTIONS
-============================= -->
-<section id="kibale" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
-  <h2>Kibale National Park</h2>
-  <img src="kibale-national-park.jpeg" style="width:100%; border-radius:10px; margin-bottom:20px;">
-  <!-- Embedded YouTube Shorts video -->
-<iframe width="100%" height="315" 
-    src="https://www.youtube.com/embed/b1GwOC9imIg?autoplay=0&rel=0" 
-    title="Kibale National Park – Papio Anubis Baboons" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-</iframe>
-
-<!-- Optional: Watch on YouTube button -->
-<a href="https://youtube.com/shorts/b1GwOC9imIg?feature=shared" target="_blank" 
-   style="display:inline-block; margin-top:10px; padding:10px 20px; background:#ff0000; color:#fff; border-radius:5px; text-decoration:none;">
-   Watch on YouTube
-</a>
-   <ul style="text-align:left; padding-left:25px; margin-bottom:20px; font-size:14px; color:#333; list-style-type:circle;">
-    <li>Species observed: Papio Anubis</li>
-    <li>Location along the main park road</li>
-    <li>Time of day: afternoon</li>
-  </ul>
-  <button onclick="hideDiary('kibale')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
-</section>
-
-<section id="murchison" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
-  <h2>Murchison Falls</h2>
-  <img src="murchison-placeholder.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
-  <button onclick="hideDiary('murchison')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
-</section>
-
-<section id="lake-mburo" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
-  <h2>Lake Mburo</h2>
-  <img src="lake-mburo-placeholder.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
-  <button onclick="hideDiary('lake-mburo')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
-</section>
-
-<section id="queen" class="diary-detail" style="display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px;">
-  <h2>Queen Elizabeth</h2>
-  <img src="queen-placeholder.jpg" style="width:100%; border-radius:10px; margin-bottom:20px;">
-  <button onclick="hideDiary('queen')" style="padding:10px 20px; cursor:pointer; margin-top:20px;">Back</button>
-</section>
-
-<!-- =============================
-     MOBILE-FRIENDLY JAVASCRIPT
-============================= -->
-<script>
-const diaryCards = document.querySelectorAll('.diary-card');
-let lastClickedCard = null;
-
-// Add tap effect for mobile
-diaryCards.forEach(card => {
-  card.addEventListener('touchstart', () => {
-    card.style.transform = 'scale(0.97)';
-    card.style.boxShadow = '0 6px 10px rgba(0,0,0,0.15)';
-  });
-  card.addEventListener('touchend', () => {
-    card.style.transform = '';
-    card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-  });
-
-  // Record which card was clicked
-  card.addEventListener('click', () => {
-    lastClickedCard = card;
-  });
-});
-
-function showDiary(id){
-  document.querySelectorAll('.diary-detail').forEach(sec => sec.style.display='none');
-  const section = document.getElementById(id);
-  section.style.display = 'block';
-
-  // Scroll to top of section
-  const offset = 80; 
-  const bodyRect = document.body.getBoundingClientRect().top;
-  const elemRect = section.getBoundingClientRect().top;
-  const scrollPos = elemRect - bodyRect - offset;
-  window.scrollTo({ top: scrollPos, behavior: 'smooth' });
-}
-
-function hideDiary(id){
-  document.getElementById(id).style.display = 'none';
-
-  // Scroll back to the last clicked card
-  if(lastClickedCard){
-    const offset = 20; // small margin above card
-    const bodyRect = document.body.getBoundingClientRect().top;
-    const elemRect = lastClickedCard.getBoundingClientRect().top;
-    const scrollPos = elemRect - bodyRect - offset;
-    window.scrollTo({ top: scrollPos, behavior: 'smooth' });
-    lastClickedCard = null;
-  }
-}
-</script>
- 
-<!-- GUIDE -->
-<section id="guide">
-<h2>Uganda Travel Guide</h2>
-<div class="guide-grid">
-  <div class="guide-card">
-    <h3>Best Time to Visit</h3>
-    <p>Uganda is magical all year, but the dry seasons-June to September and December to February are perfect for safaris and wildlife adventures. Clear skies and easy trails make gorilla trekking in Bwindi and chimp encounters in Kibale unforgettable. Wet months bring lush green landscapes, fewer crowds, and stunning birdwatching opportunities. No matter when you visit, Uganda promises breathtaking scenery and wildlife at every turn.</p>
-  </div>
-  <div class="guide-card">
-    <h3>Gorilla Trekking</h3>
-    <p>One of the world's greatest wildlife experiences in Bwindi forest.</p>
-    <img src="gorilla.png">
-  </div>
-  <div class="guide-card">
-    <h3>Safari Adventures</h3>
-    <p>Boat safaris, game drives and chimpanzee trekking across Uganda.</p>
-    <img src="safari-lion.jpeg">
-  </div>
 </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery">
-<h2>Your Rides</h2>
-<div class="gallery-grid">
-  <img src="landcruiser.jpeg" alt="Uganda safari Land Cruiser">
-  <img src="tour-van.jpeg" alt="Uganda tour van with pop-up roof">
-  <img src="jeep.jpeg">
-  <img src="van.jpeg">
-  <img src="interior.jpeg">
-  <img src="road-trip.jpg">
-</div>
-</section>
+<!-- TRUST -->
+<section id="trust" class="trust">
+<h2>Why Choose DenKin</h2>
 
-<!-- ACTIVITIES -->
-<section id="activities">
-<h2>Outdoor Adventure Activities</h2>
-<div class="activities-grid">
-  <div class="activity-card">
-    <h3>Ninja Warrior Course</h3>
-    <p>Challenge yourself on obstacle setups that test strength, balance, and agility.</p>
-    <img src="ninja-course.jpg">
-  </div>
-  <div class="activity-card">
-    <h3>Team Building Challenges</h3>
-    <p>Engage in fun group activities designed for collaboration and problem-solving outdoors.</p>
-    <img src="team-building.jpg">
-  </div>
-  <div class="activity-card">
-    <h3>Adventure Playground</h3>
-    <p>Experience climbing structures, zip lines, and rope activities suitable for all ages.</p>
-    <img src="adventure-playground.jpg">
-  </div>
+<div class="grid">
+
+<div class="card">
+<h3>Professional Drivers</h3>
+</div>
+
+<div class="card">
+<h3>Well Maintained Vehicles</h3>
+</div>
+
+<div class="card">
+<h3>Flexible Trips</h3>
+</div>
+
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="padding:40px 20px; text-align:left;">
+<section id="contact">
+<h2>Contact</h2>
 
-  <div class="contact-card" style="background:#f0f0f0; padding:25px; border-radius:10px; max-width:450px; margin:auto; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+<p>Phone: +256 756 712 936</p>
+<p>Email: deniskinani504@gmail.com</p>
 
-    <h2>Contact Us</h2>
-
-<p>
-<strong>Phone & WhatsApp:</strong><br>
-<a href="tel:+256756712936">+256 756 712 936</a><br>
-<a href="https://wa.me/256756712936">Chat on WhatsApp</a>
-</p>
-
-<p><strong>Email:</strong> 
-<a href="mailto:deniskinani504@gmail.com">deniskinani504@gmail.com</a>
-</p>
-
-  </div>
+<a href="https://wa.me/256756712936" class="button">Chat on WhatsApp</a>
 </section>
- 
-  <!-- Schema for Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DenKin Tours & Transport",
-    "telephone": "+256756712936",
-    "email": "deniskinani504@gmail.com",
-    "url": "https://deniskinaniventures.github.io/denkin-tours-and-transport/"
-  }
-  </script>
-
-<style>
-/* Icon colors and hover */
-.contact-icon.phone { color: #1a4d8f; font-size:1.2em; transition: transform 0.2s, filter 0.2s; }
-.contact-icon.whatsapp { color: #25D366; font-size:1.2em; transition: transform 0.2s, filter 0.2s; }
-.contact-icon.email { color: #1a73e8; font-size:1.2em; transition: transform 0.2s, filter 0.2s; }
-
-.contact-icon:hover {
-  transform: scale(1.2);
-  filter: brightness(1.3);
-  cursor: pointer;
-}
-
-/* Contact links default */
-.contact-link {
-  text-decoration: none;
-  margin-left:5px;
-  transition: color 0.2s;
-}
-
-/* Hover colors match brand */
-.phone-link:hover { color: #1a4d8f; }
-.whatsapp-link:hover { color: #25D366; }
-.email-link:hover { color: #1a73e8; }
-</style>
 
 <footer>
-<p>© DenKin Tours and Transport</p>
+<p>© DenKin Tours & Transport | Kampala, Uganda</p>
 </footer>
 
-<a href="#hero" class="fixed-home" id="homeBtn">Home</a>
+<!-- JS -->
+<script>
 
- <script>
-  
-/* MENU TOGGLE */
 function toggleMenu(){
+  document.getElementById("dropdown").classList.toggle("show");
+}
+
+/* CLOSE MENU AFTER CLICK */
+document.querySelectorAll('#dropdown a').forEach(link=>{
+  link.addEventListener('click', ()=>{
+    document.getElementById("dropdown").classList.remove("show");
+  });
+});
+
+/* CLOSE IF CLICK OUTSIDE */
+document.addEventListener('click', function(e){
   const menu = document.getElementById("dropdown");
-  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-}
+  const icon = document.querySelector('.menu-icon');
 
-/* HERO SLIDER */
-const heroImages = [
-  "airport-car.png",
-  "gorilla.png",
-  "safari-lion.jpeg",
-  "murchison-falls.jpg",
-  "kampala-city.jpg",
-  "coffee-farm.jpg"
-];
-
-const heroCaptions = [
-  "Private Airport Transfers Between Entebbe and Kampala",
-  "Gorilla Trekking Adventures in Bwindi Forest",
-  "Uganda Wildlife Safari Adventures",
-  "Murchison Falls National Park Experience",
-  "Explore Kampala With a Private Guide",
-  "Agro-Tourism and Cultural Farm Experiences"
-];
-
-let index = 0;
-
-window.addEventListener("load", function(){
-
-  const hero = document.getElementById("hero");
-  const caption = document.getElementById("hero-caption");
-
-  // Set first image
-  hero.style.backgroundImage = `url('${heroImages[0]}')`;
-  caption.textContent = heroCaptions[0];
-
-  function changeHero(){
-    index = (index + 1) % heroImages.length;
-
-    caption.style.opacity = 0;
-
-    setTimeout(() => {
-      hero.style.backgroundImage = `url('${heroImages[index]}')`;
-      caption.textContent = heroCaptions[index];
-      caption.style.opacity = 1;
-    }, 400);
+  if(!menu.contains(e.target) && !icon.contains(e.target)){
+    menu.classList.remove("show");
   }
-
-  setInterval(changeHero, 5000);
 });
 
-/* HOME BUTTON */
-const homeBtn = document.getElementById("homeBtn");
-
-window.addEventListener("scroll", () => {
-  if(window.scrollY > 200){
-    homeBtn.style.right = "20px";
-    homeBtn.style.opacity = "1";
-  } else {
-    homeBtn.style.right = "-80px";
-    homeBtn.style.opacity = "0";
-  }
-}); 
 </script>
- <script>
-function toggleMenu() {
-  const dropdown = document.getElementById('dropdown');
-  dropdown.classList.toggle('show');
-}
 
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-  const dropdown = document.getElementById('dropdown');
-  const menuIcon = document.querySelector('.menu-icon');
-  if (!dropdown.contains(e.target) && !menuIcon.contains(e.target)) {
-    dropdown.classList.remove('show');
-  }
-});
- </script>
 </body>
 </html>
