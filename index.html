@@ -98,17 +98,21 @@ section{
   overflow:hidden;
 }
 
-/* Moving background */
-.hero::before{
-  content:"";
+/* background images layer */
+.hero-bg{
   position:absolute;
   inset:0;
-  background:url('hero.jpg') center/cover no-repeat;
-  animation: slowZoom 20s infinite alternate ease-in-out;
+  background-size:cover;
+  background-position:center;
+  transition:opacity 1.5s ease-in-out;
   z-index:0;
-  filter: brightness(0.6);
+  filter:brightness(0.6);
 }
 
+.hero-content{
+  position:relative;
+  z-index:2;
+}
 /* Dark overlay */
 .hero::after{
   content:"";
@@ -494,5 +498,33 @@ document.addEventListener('click', function(e){
 </a>
   
  <a href="#hero" id="homeBtn" class="home-btn">↑ Home</a> 
+<script>
+const images = [
+  'hero1.jpg',
+  'hero2.jpg',
+  'hero3.jpg'
+];
+
+let index = 0;
+
+const hero = document.querySelector('.hero');
+
+const bg = document.createElement('div');
+bg.classList.add('hero-bg');
+hero.prepend(bg);
+
+function changeBackground(){
+  bg.style.opacity = 0;
+
+  setTimeout(() => {
+    bg.style.backgroundImage = `url('${images[index]}')`;
+    bg.style.opacity = 1;
+    index = (index + 1) % images.length;
+  }, 500);
+}
+
+changeBackground();
+setInterval(changeBackground, 5000);
+</script>
 </body>
 </html>
