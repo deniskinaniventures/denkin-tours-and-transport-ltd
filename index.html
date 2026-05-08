@@ -89,25 +89,27 @@ section{
 .hero{
   margin-top:60px;
   height:75vh;
+  position:relative;
+  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
-  position:relative;
-  overflow:hidden;
 }
 
-/* background images layer */
+/* both layers */
 .hero-bg{
   position:absolute;
   inset:0;
   background-size:cover;
   background-position:center;
-  transition:opacity 1.5s ease-in-out;
-  z-index:0;
+  transition:opacity 1.5s ease;
   filter:brightness(0.6);
 }
+
+.bg1{ z-index:0; opacity:1; }
+.bg2{ z-index:0; opacity:0; }
 
 .hero-content{
   position:relative;
@@ -240,13 +242,17 @@ footer{
 
 <!-- HERO -->
 <section class="hero" id="hero">
+
+  <div class="hero-bg bg1"></div>
+  <div class="hero-bg bg2"></div>
+
   <div class="hero-content">
     <h1>DenKin Tours & Transport Ltd</h1>
     <p>Reliable travel across Uganda</p>
     <a href="#contact" class="button">Plan Your Trip</a>
   </div>
-</section>
 
+</section>
 <!-- ABOUT -->
 <section id="about">
 <h2>About Us</h2>
@@ -506,25 +512,31 @@ const images = [
 ];
 
 let index = 0;
+let active = 1;
 
-const hero = document.querySelector('.hero');
+const bg1 = document.querySelector('.bg1');
+const bg2 = document.querySelector('.bg2');
 
-const bg = document.createElement('div');
-bg.classList.add('hero-bg');
-hero.prepend(bg);
+// set initial image
+bg1.style.backgroundImage = `url('${images[0]}')`;
 
-function changeBackground(){
-  bg.style.opacity = 0;
+setInterval(() => {
 
-  setTimeout(() => {
-    bg.style.backgroundImage = `url('${images[index]}')`;
-    bg.style.opacity = 1;
-    index = (index + 1) % images.length;
-  }, 500);
-}
+  index = (index + 1) % images.length;
 
-changeBackground();
-setInterval(changeBackground, 5000);
+  const nextImage = images[index];
+
+  const nextBg = active === 1 ? bg2 : bg1;
+  const currentBg = active === 1 ? bg1 : bg2;
+
+  nextBg.style.backgroundImage = `url('${nextImage}')`;
+
+  nextBg.style.opacity = 1;
+  currentBg.style.opacity = 0;
+
+  active = active === 1 ? 2 : 1;
+
+}, 5000);
 </script>
 </body>
 </html>
