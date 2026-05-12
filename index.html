@@ -140,28 +140,31 @@ section{
 }
 
 /* ===== CARDS ===== */
-/* ===== CARDS ===== */
 .grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
 }
-  .fleet-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+
+.fleet-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
 }
+
 .card{
   background:#f8f4ec;
   padding:20px;
   border-radius:10px;
   box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
 
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+}
 /* ===== TRUST ===== */
 .trust{
   background:#f8f4ec;
